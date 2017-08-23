@@ -1,0 +1,99 @@
+set nocompatible
+set number
+syntax on
+set showmode
+set showmatch
+set showcmd
+set encoding=utf-8
+set t_Co=256
+set autoindent
+set shiftwidth=4
+set expandtab
+set textwidth=80
+set wrap
+set linebreak
+set ruler
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set autoread
+set noswapfile
+set nobackup
+set termguicolors
+set vb t_vb=
+
+set wildmenu
+set wildmode=longest:full,full
+
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
+
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+set updatetime=100
+
+"Mapping
+map <silent> <C-S-M> :NERDTreeFind<CR>
+map <silent> <c-p> :FZF<CR>
+map <silent> <c-s> :w<CR>
+inoremap <c-s> <Esc>:w<CR>
+map <M-s> :w<kEnter>
+imap <M-s> <Esc>:w<kEnter>i
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jreybert/vimagit'
+Plug 'tomasr/molokai'
+Plug 'junegunn/fzf'
+Plug 'dense-analysis/ale'
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier', { 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+call plug#end()
+
+" Airline Plugin
+let g:airline#extensions#tabline#enabled = 1
+
+"Ale
+let g:ale_sign_column_always = 1
+let g:ale_lint_on_text_changed = 1
+
+colorscheme molokai
+
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
+
+

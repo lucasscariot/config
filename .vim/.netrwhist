@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/lucasscariot/.mutt'
+let g:netrw_dirhist_0='/Users/lucasscariot/goinfre/yubo-dashboard'
+let g:netrw_dirhist_9='/Users/lucasscariot'
+let g:netrw_dirhist_8='/Users/lucasscariot/goinfre/yubo-dashboard'
+let g:netrw_dirhist_7='/Users/lucasscariot/Library/Saved Application State/com.googlecode.iterm2.savedState'
+let g:netrw_dirhist_6='/Users/lucasscariot'
+let g:netrw_dirhist_5='/Users/lucasscariot/goinfre/yubo-dashboard'
+let g:netrw_dirhist_4='/Users/lucasscariot'
+let g:netrw_dirhist_3='/Users/lucasscariot/goinfre/zendesk-dashboard'
+let g:netrw_dirhist_2='/Users/lucasscariot/goinfre/yubo-dashboard'

@@ -24,7 +24,7 @@ set gfn=Monaco:h14
 
 call plug#begin('~/.vim/plugged')
 
-  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file finder for Vim.
   Plug 'mustache/vim-mustache-handlebars' "Ember handlebar
   Plug 'pangloss/vim-javascript'
   Plug 'bling/vim-airline' "Bottom bar custom
@@ -36,7 +36,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-multiple-cursors'
   Plug 'airblade/vim-gitgutter'
   Plug 'junegunn/vim-easy-align'
-  Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+  Plug 'junegunn/vim-github-dashboard.git'
   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -44,7 +44,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'fatih/vim-go', { 'tag': '*' }
   Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug '~/my-prototype-plugin'
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] }
   Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -54,6 +53,5 @@ call plug#begin('~/.vim/plugged')
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 call plug#end()
-
 
 colorscheme onedark

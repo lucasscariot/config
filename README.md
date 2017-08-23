@@ -1,2 +1,2 @@
 # Vim configuration
-`{ Personnal Unix Config }`
+> { Personnal Unix Config }

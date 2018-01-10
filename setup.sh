@@ -28,3 +28,6 @@ hdutil mount Docker.dmg
 cp -R "/Volumes/Docker/docker.app" /Application
 hdiutil detach /Volumes/Docker
 open /Applications/docker
+
+npm install --global release
+npm install --global nodemon

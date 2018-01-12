@@ -58,13 +58,7 @@ if notInstalled docker ; then
   cp -R "/Volumes/Docker/Docker.app" /Applications
   hdiutil detach /Volumes/Docker
   open /Applications/Docker.app
-  echo "Configure your docker.. press enter when it's done"
-  read
-  if ! notInstalled docker-compose ; then
-    docker-compose up -d
-  fi
   rm Docker.dmg
-  # pg_restore -O -d forest ~/Downloads/forest.dump -h localhost -p 5435 -U forest
 fi
 
 npmInstall nodemon

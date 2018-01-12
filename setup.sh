@@ -24,6 +24,7 @@ function brewInstall() {
       exit
     else
       echo "    -> Installation success!"
+      source ~/.bash_profile
     fi
   fi
 }
@@ -38,6 +39,22 @@ function npmInstall() {
       exit
     else
       echo "    -> Installation success!"
+      source ~/.bash_profile
+    fi
+  fi
+}
+
+function gemInstall() {
+  [[ $2 ]] && program="$2" || program="$1"
+
+  if notInstalled $program ; then
+    gem install $1 &> /dev/null
+    if [ $? -ne 0 ]; then
+      echo "    -> Installation failed."
+      exit
+    else
+      echo "    -> Installation success!"
+      source ~/.bash_profile
     fi
   fi
 }
@@ -51,7 +68,10 @@ brewInstall zsh
 brewInstall postgresql psql
 brewInstall redis redis-cli
 brewInstall gnupg, gpg
+brewInstall rbenv
+brewInstall openssl
 
+#  DOCKER
 if notInstalled docker ; then
   wget https://download.docker.com/mac/stable/Docker.dmg
   hdiutil mount Docker.dmg
@@ -63,3 +83,14 @@ fi
 
 npmInstall nodemon
 npmInstall release
+
+# Install Ruby
+if [ "$(rbenv global)" != "2.5.0" ]; then
+  rbenv install 2.5.0
+  rbenv global 2.5.0
+  echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
+  source ~/.bash_profile
+fi
+
+gemInstall jekyll
+gemInstall bundler

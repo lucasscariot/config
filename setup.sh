@@ -83,3 +83,6 @@ fi
 
 gemInstall jekyll
 gemInstall bundler
+
+# Small Config
+defaults write com.apple.screencapture location ~/Pictures/Screenshots

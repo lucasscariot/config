@@ -86,3 +86,9 @@ gemInstall bundler
 
 # Small Config
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
+
+if [ -f ~/.bash_profile ]; then
+  echo "File exist"
+else
+  echo "File don't exist"
+fi

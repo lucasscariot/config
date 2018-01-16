@@ -8,6 +8,7 @@
 #### via wget
 `sh -c "$(wget https://raw.githubusercontent.com/lucasscariot/config/master/setup.sh -O -)"`
 
+
 ## Informations
 #### Installed programs
 - homebrew
@@ -21,5 +22,14 @@
 - nodemon
 - release
 - rbenv
+- heroku
 - jekyll
 - bundler
+
+___
+
+#### bash_profile only
+`curl https://raw.githubusercontent.com/lucasscariot/config/master/.bash_profile > ~/.bach_profile`
+
+#### gitconfig only
+`curl https://raw.githubusercontent.com/lucasscariot/config/master/.gitconfig > ~/.gitconfig`

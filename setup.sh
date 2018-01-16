@@ -81,11 +81,17 @@ if [ "$(rbenv global)" != "2.5.0" ]; then
   source ~/.bash_profile
 fi
 
-# gemInstall jekyll
-# gemInstall bundler
+gemInstall jekyll
+gemInstall bundler
 
 # Small Config
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
+
+# Heroku Login
+heroku auth:whoami &> /dev/null
+if [ $? -ne 0 ]; then
+  heroku login
+fi
 
 if [ -f ~/.bash_profile ]; then
   read -p 'Overwrite .bash_profile? (y/N) ' overwrite
@@ -94,8 +100,9 @@ else
 fi
 
 if echo "$overwrite" | grep -iq "^y" ;then
-  curl https://raw.githubusercontent.com/lucasscariot/config/master/.bash_profile > ~/.bach_profile
+  curl -s https://raw.githubusercontent.com/lucasscariot/config/master/.bash_profile > ~/.bash_profile
   installResult
+  source ~/.bash_profile
 fi
 
 if [ -f ~/.gitconfig ]; then
@@ -105,6 +112,6 @@ else
 fi
 
 if echo "$overwrite" | grep -iq "^y" ;then
-  curl https://raw.githubusercontent.com/lucasscariot/config/master/.gitconfig > ~/.gitconfig
+  curl -s https://raw.githubusercontent.com/lucasscariot/config/master/.gitconfig > ~/.gitconfig
   installResult
 fi

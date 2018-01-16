@@ -154,6 +154,7 @@
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
 	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 	#############
+	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 	barebranch = !sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -
 	flat = clone --depth 1
 	subpull = !git submodule foreach git pull --tags origin master

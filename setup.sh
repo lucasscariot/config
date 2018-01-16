@@ -81,14 +81,30 @@ if [ "$(rbenv global)" != "2.5.0" ]; then
   source ~/.bash_profile
 fi
 
-gemInstall jekyll
-gemInstall bundler
+# gemInstall jekyll
+# gemInstall bundler
 
 # Small Config
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
 
 if [ -f ~/.bash_profile ]; then
-  echo "File exist"
+  read -p 'Overwrite .bash_profile? (y/N) ' overwrite
 else
-  echo "File don't exist"
+  read -p 'Create .bash_profile? (y/N) ' overwrite
+fi
+
+if echo "$overwrite" | grep -iq "^y" ;then
+  curl https://raw.githubusercontent.com/lucasscariot/config/master/.bash_profile > ~/.bach_profile
+  installResult
+fi
+
+if [ -f ~/.gitconfig ]; then
+  read -p 'Overwrite .gitconfig? (y/N) ' overwrite
+else
+  read -p 'Create .gitconfig? (y/N) ' overwrite
+fi
+
+if echo "$overwrite" | grep -iq "^y" ;then
+  curl https://raw.githubusercontent.com/lucasscariot/config/master/.gitconfig > ~/.gitconfig
+  installResult
 fi

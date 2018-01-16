@@ -94,9 +94,9 @@ if [ $? -ne 0 ]; then
 fi
 
 if [ -f ~/.bash_profile ]; then
-  read -p 'Overwrite .bash_profile? (y/N) ' overwrite
+  read -t 10 -p 'Overwrite .bash_profile? (y/N) ' overwrite
 else
-  read -p 'Create .bash_profile? (y/N) ' overwrite
+  read -t 10 -p 'Create .bash_profile? (y/N) ' overwrite
 fi
 
 if echo "$overwrite" | grep -iq "^y" ;then
@@ -106,9 +106,9 @@ if echo "$overwrite" | grep -iq "^y" ;then
 fi
 
 if [ -f ~/.gitconfig ]; then
-  read -p 'Overwrite .gitconfig? (y/N) ' overwrite
+  read -t 10 -p 'Overwrite .gitconfig? (y/N) ' overwrite
 else
-  read -p 'Create .gitconfig? (y/N) ' overwrite
+  read -t 10 -p 'Create .gitconfig? (y/N) ' overwrite
 fi
 
 if echo "$overwrite" | grep -iq "^y" ;then

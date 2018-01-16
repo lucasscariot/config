@@ -195,3 +195,5 @@ alias whereami=display_info
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+eval "$(rbenv init -)"

@@ -1,6 +1,6 @@
 [user]
-	name = Lucas Scariot
-	email = lucas@scariot.fr
+	name = {{fullname}}
+	email = {{email}}
 [core]
 	editor = vim
 [commit]

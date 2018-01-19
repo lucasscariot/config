@@ -1,4 +1,4 @@
-# Vim configuration
+# Vim configuration [![Build Status](https://travis-ci.org/lucasscariot/config.svg?branch=master)](https://travis-ci.org/lucasscariot/config)
 > { Personnal Unix Config }
 
 ## Installation

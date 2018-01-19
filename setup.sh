@@ -113,5 +113,9 @@ fi
 
 if echo "$overwrite" | grep -iq "^y" ;then
   curl -s https://raw.githubusercontent.com/lucasscariot/config/master/.gitconfig > ~/.gitconfig
+  read -t 10 -p 'Enter your fullname: ' fullname
+  read -t 10 -p 'Enter your email: ' email
+  sed -i '' "s/{{fullname}}/$fullname/g" ~/.gitconfig
+  sed -i '' "s/{{email}}/$email/g" ~/.gitconfig
   installResult
 fi

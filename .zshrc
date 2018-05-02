@@ -7,7 +7,14 @@ export ZSH=/Users/lucasscariot/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="fishy"
+ZSH_THEME="robbyrussell"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +58,9 @@ ZSH_THEME="fishy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,26 +93,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-eval "$(rbenv init -)"
-eval $(thefuck --alias)
-alias "atom ,=atom ."
-alias "laravel=~/.composer/vendor/bin/laravel"
-alias "composer=php composer.phar"
-
-# NPM
-alias "nr=npm run"
-alias "ni=npm install"
-alias "np=npm prune"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export NVM_DIR="/Users/lucasscariot/.nvm"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-export NVM_DIR=~/.nvm
-source ~/.nvm/nvm.sh
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+source ~/goinfre/payfit/stack/.zshrc
+
+alias "gco devel"="gco development"
+
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+      sed s/^..//) 2> /dev/null'

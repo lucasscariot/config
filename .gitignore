@@ -1,3 +1,5 @@
 vim/vim/plugged
 vim/vim/.netrwhist
 vim/vim/sessions
+
+.bash_secret

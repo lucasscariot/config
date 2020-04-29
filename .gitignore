@@ -1,5 +1,8 @@
-vim/vim/plugged
-vim/vim/.netrwhist
-vim/vim/sessions
+.vim/plugged
+.vim/.netrwhist
+.vim/sessions
+
+.mutt/certificates
+.mutt/credentials
 
 .bash_secret

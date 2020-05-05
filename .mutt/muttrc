@@ -1,4 +1,4 @@
-source ./credentials
+source ~/.mutt/credentials
 
 set mailcap_path 	= ~/.mutt/mailcap
 

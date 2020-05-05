@@ -23,6 +23,10 @@ set nobackup
 set termguicolors
 set vb t_vb=
 
+if &term =~ '256color'
+    set t_ut=
+endif        
+
 set wildmenu
 set wildmode=longest:full,full
 
@@ -82,15 +86,15 @@ colorscheme molokai
 
 " Check if NERDTree is open or active
 function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+    return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
 " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
 function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
+    if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+        NERDTreeFind
+        wincmd p
+    endif
 endfunction
 
 " Highlight currently open buffer in NERDTree
